@@ -42,7 +42,7 @@ const Word = memo(function Word({
   } else if (currentIndex === index) {
     classNameHighlighted =
       currentWord.length > 0
-        ? 'border-gray-100 '
+        ? 'border-red-400 '
         : 'bg-gray-200 border-transparent';
   } else {
     classNameHighlighted = 'bg-transparent border-transparent';
