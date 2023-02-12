@@ -35,20 +35,20 @@ const Word = memo(function Word({
   index: number;
 }) {
   const { currentWord, currentIndex } = useTypedWord();
-  let classNameHighlited = '';
+  let classNameHighlighted = '';
 
   if (currentIndex == index && word.length && word === currentWord) {
-    classNameHighlited = 'bg-green-500 border-transparent';
+    classNameHighlighted = 'bg-green-500 border-transparent';
   } else if (currentIndex === index) {
-    classNameHighlited =
+    classNameHighlighted =
       currentWord.length > 0
         ? 'border-gray-100 '
         : 'bg-gray-200 border-transparent';
   } else {
-    classNameHighlited = 'bg-transparent border-transparent';
+    classNameHighlighted = 'bg-transparent border-transparent';
   }
   return (
-    <p className={` px-1  border  ${classNameHighlited}  `}>
+    <p className={` px-1  border  ${classNameHighlighted}  `}>
       <span>
         {currentIndex == index
           ? [...word].map((char, key) => (
