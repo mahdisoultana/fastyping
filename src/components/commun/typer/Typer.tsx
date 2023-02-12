@@ -10,14 +10,12 @@ function Typer() {
     </div>
   );
 }
-const text = `useEffect
-99% of the time this is what you want to use. When hooks are stable and if you refactor any of your class components to use hooks, you'll likely move any code from componentDidMount, componentDidUpdate, and componentWillUnmount to useEffect.
+const text = `useEffect 99% of the time this is what you want to use. When hooks are stable and if you refactor any of your class components to use hooks, you'll likely move any code from componentDidMount, componentDidUpdate, and componentWillUnmount to useEffect.
 
 The one catch is that this runs after react renders your component and ensures that your effect callback does not block browser painting. This differs from the behavior in class components where componentDidMount and componentDidUpdate run synchronously after rendering. It's more performant this way and most of the time this is what you want.
 
 However, if your effect is mutating the DOM (via a DOM node ref) and the DOM mutation will change the appearance of the DOM node between the time that it is rendered and your effect mutates it, then you don't want to use useEffect. You'll want to use useLayoutEffect. Otherwise the user could see a flicker when your DOM mutations take effect. This is pretty much the only time you want to avoid useEffect and use useLayoutEffect instead.`;
 function TextTyping() {
-  console.log('typing');
   return (
     <div className="w-[500px] m-auto  p-4 my-10 mb-2 space-y-4 break-words">
       <div className="flex  flex-wrap  border border-red-500 p-4">
@@ -40,15 +38,35 @@ const Word = memo(function Word({
   let classNameHighlited = '';
 
   if (currentIndex == index && word.length && word === currentWord) {
-    classNameHighlited = 'bg-green-500';
+    classNameHighlited = 'bg-green-500 border-transparent';
   } else if (currentIndex === index) {
-    classNameHighlited = 'bg-gray-200';
+    classNameHighlited =
+      currentWord.length > 0
+        ? 'border-gray-100 '
+        : 'bg-gray-200 border-transparent';
   } else {
-    classNameHighlited = 'bg-transparent';
+    classNameHighlited = 'bg-transparent border-transparent';
   }
   return (
-    <p className={` px-1   ${classNameHighlited}  `}>
-      <span>{word}</span>
+    <p className={` px-1  border  ${classNameHighlited}  `}>
+      <span>
+        {currentIndex == index
+          ? [...word].map((char, key) => (
+              <span
+                key={key}
+                className={
+                  currentWord[key] == char
+                    ? 'bg-green-500'
+                    : currentWord.length > 0
+                    ? 'bg-red-500'
+                    : 'bg-transparent'
+                }
+              >
+                {char}
+              </span>
+            ))
+          : word}
+      </span>
     </p>
   );
 });
