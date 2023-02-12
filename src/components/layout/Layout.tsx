@@ -4,7 +4,7 @@ import Header from './header/Header';
 
 function Layout({ children }: { children: ReactNode }) {
   return (
-    <section className="bg-gray-50 w-full h-screen">
+    <section className="bg-gray-50 w-full min-h-screen">
       <Header />
       {children}
       <Footer />
