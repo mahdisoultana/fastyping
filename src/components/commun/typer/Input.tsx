@@ -17,7 +17,7 @@ function InputTyper() {
             } else {
               setMissedWord();
             }
-            console.log({ currentIndex, lengthy: data.length - 1 });
+            // console.log({ currentIndex, lengthy: data.length - 1 });
             if (currentIndex >= data.length - 1) {
               setCurrentIndex(0);
             } else {
