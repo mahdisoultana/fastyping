@@ -1,8 +1,15 @@
 import { useScore, useTypedWord } from '../../../hooks';
 
 function InputTyper() {
-  const { setCurrentWord, currentWord, setCurrentIndex, currentIndex, data } =
-    useTypedWord();
+  const {
+    setCurrentWord,
+    currentWord,
+    captureWord,
+    setCapturedWord,
+    setCurrentIndex,
+    currentIndex,
+    data,
+  } = useTypedWord();
   const { setScoreWord, setMissedWord } = useScore();
 
   return (
@@ -11,6 +18,7 @@ function InputTyper() {
       onChange={(e) => setCurrentWord(e.target.value.trim())}
       onKeyUp={(e) => {
         if (e.code === 'Space') {
+          setCapturedWord('');
           if (currentWord.length > 0) {
             if (currentWord == data[currentIndex]) {
               setScoreWord();
@@ -23,6 +31,7 @@ function InputTyper() {
             } else {
               setCurrentIndex();
             }
+            setCapturedWord(currentWord);
             setCurrentWord('');
           }
         }
