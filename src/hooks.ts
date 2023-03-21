@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-export const text = `useEffect 99% of the time this is what you want to use. When hooks are stable and if you refactor any of your class components to use hooks, you'll likely move any code from componentDidMount, componentDidUpdate, and componentWillUnmount to useEffect.
+export const text = `useEffect 99% of the time this is what you want to use. When hooks are stable and if you
 `;
 
 const text2 = `

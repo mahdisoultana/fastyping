@@ -9,10 +9,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@uiw/react-textarea-code-editor": "^2.1.1",
     "framer-motion": "^9.0.1",
     "react": "^18.2.0",
     "react-countup": "^6.4.1",
     "react-dom": "^18.2.0",
+    "react-syntax-highlighter": "^15.5.0",
     "react-timer-hook": "^3.0.5",
     "zustand": "^4.3.2"
   },

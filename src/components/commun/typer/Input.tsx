@@ -1,4 +1,4 @@
-import { useScore, useTypedWord } from '../../../hooks';
+import { text, useScore, useTypedWord } from '../../../hooks';
 
 function InputTyper() {
   const {
@@ -36,7 +36,11 @@ function InputTyper() {
           }
         }
       }}
-      className="w-full p-2 border text-lg outline-dashed outline-1"
+      className={`w-full p-2 border rounded-sm text-2xl outline-gray-800/40 outline-dashed outline-1  block  ${
+        !text.split(' ')[currentIndex].startsWith(currentWord)
+          ? 'text-red-500 focus:outline-red-800 bg-red-50'
+          : 'text-gray-900 focus:outline-gray-800 bg-gray-50'
+      }`}
     />
   );
 }

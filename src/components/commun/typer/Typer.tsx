@@ -44,22 +44,26 @@ function TextTyping() {
   }, [currentIndex]);
 
   return (
-    <div className="w-[500px] m-auto  p-4 my-10 mb-2 space-y-4 break-words">
-      <div className="flex  flex-wrap  border border-red-500 p-4">
+    <div className="w-[650px] m-auto  p-4 my-10 mb-2 space-y-4 break-words">
+      <div className="flex  flex-wrap  border border-gray-500/20  rounded-sm p-4 text-2xl font-medium text-gray-900 mb-12">
         {text.map(({ word, isCorrect }, index, arr) => {
-          let classNameHighlighted =
+          // this text logic is for all texts that persist
+          let classNameHighlighted = `rounded-sm ${
             isCorrect === null || currentIndex == 0
               ? ''
               : isCorrect
               ? ' text-green-600   '
-              : 'text-red-500  ';
+              : 'text-red-500  '
+          } `;
+
           if (currentIndex == index && word.length && word === currentWord) {
             classNameHighlighted += 'bg-green-500 border-transparent';
           } else if (currentIndex === index) {
             classNameHighlighted +=
-              currentWord.length > 0
+              currentWord.length > 0 &&
+              !text[currentIndex].word.startsWith(currentWord)
                 ? 'border-red-500 bg-red-500 '
-                : 'bg-gray-200 border-transparent';
+                : 'bg-gray-200  border-transparent border-green-500  border';
           } else {
             classNameHighlighted += 'bg-transparent border-transparent';
           }

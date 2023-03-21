@@ -5,6 +5,7 @@ function App() {
   return (
     <Layout>
       <Typer />
+      {/* <CodeEditorApp /> */}
     </Layout>
   );
 }
